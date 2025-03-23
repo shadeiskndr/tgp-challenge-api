@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: tgp-challenge-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: tgp_challenge
+      MYSQL_USER: tgpuser
+      MYSQL_PASSWORD: tgppassword
+    volumes:
+      - tgp-challenge-mysql-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  tgp-challenge-mysql-data:
